@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .container {
+            max-width: 580px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius:5px;
+            margin:20px;
+            text-align:center;
+            margin-left:23px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Multiplication Table</h2>
+    <input type="number" id="number" placeholder="Enter the Number of Table">
+  <br>
+    <button claas="inpbtn" onclick="generateTable()">Generate Table</button>
+  <hr>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    function generateTable() {
+        const number = document.getElementById('number').value;
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '';
+
+        if (number === '') {
+            resultDiv.innerHTML = '<center><p>Please enter a number.</p></center>';
+            return;
+        }
+
+        let table = '<table border="1" cellpadding="5" cellspacing="0" style="width:100%; text-align:center;">';
+        for (let i = 1; i <= 10; i++) {
+            table += `<tr><td>${number} x ${i} = ${number * i}</td></tr>`;
+        }
+        table += '</table>';
+        resultDiv.innerHTML = table;
+    }
+</script>
+
+</body>
+</html>
